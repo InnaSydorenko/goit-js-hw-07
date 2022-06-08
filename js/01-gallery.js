@@ -28,13 +28,30 @@ function createElementOfGallery(elements) {
 
 
 function onGalleryContainerClick(e) { 
-   e.preventDefault();
-   const modal = basicLightbox.create(`
-    <img src="${e.target.dataset.source}">
+  e.preventDefault();
+ /* const isGalleryImg = e.target.classlist.contains('gallery_image');
+  if (!isGalleryImg) {
+    return;
+  }*/
+  
+  const selectedImg = e.target.dataset.source;
+  const modal = basicLightbox.create(`
+    <div class="modal">
+       <img src="${selectedImg}">
+    </div>
    `)
 
   modal.show();
+  
+
 };
+/*window.addEventListener('keydown', onEscPress);
+
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    modal.close();
+  }
+};*/
 
 
 
